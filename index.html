@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MyBookshelf</title>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+        <link rel="stylesheet" href="main.css" />
+    </head>
+    <body class="bg-slate-200 h-screen">
+        <header class="bg-white shadow-md w-full">
+            <nav class="container flex items-center h-16">
+                <h1 class="text-3xl"><strong>MyBookshelf</strong></h1>
+            </nav>
+        </header>
+        <main class="container min-h-[calc(100vh-8rem)]">
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <h2 class="text-2xl py-5">
+                        <strong>Masukkan Buku Baru</strong>
+                    </h2>
+                    <div class="bg-white rounded-lg p-5 shadow-md">
+                        <form id="form-add">
+                            <div class="mb-3">
+                                <div class="mb-2">
+                                    <label for="title"
+                                        ><strong>Judul</strong></label
+                                    >
+                                </div>
+                                <div>
+                                    <input
+                                        class="border-2 border-gray-100 h-10 p-3 rounded shadow w-full focus:outline-none focus:border-sky-500"
+                                        id="title"
+                                        type="text"
+                                        autofocus
+                                    />
+                                </div>
+                                <div
+                                    id="title-validation"
+                                    class="text-red-500"
+                                ></div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="mb-2">
+                                    <label for="author"
+                                        ><strong>Penulis</strong></label
+                                    >
+                                </div>
+                                <div>
+                                    <input
+                                        class="border-2 border-gray-100 h-10 p-3 rounded shadow w-full focus:outline-none focus:border-sky-500"
+                                        id="author"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="mb-2">
+                                    <label for="year"
+                                        ><strong>Tahun</strong></label
+                                    >
+                                </div>
+                                <div>
+                                    <input
+                                        class="border-2 border-gray-100 h-10 p-3 rounded shadow w-full focus:outline-none focus:border-sky-500"
+                                        id="year"
+                                        type="number"
+                                    />
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div>
+                                    <input
+                                        class="border-2 border-gray-100 mr-1 rounded shadow w-4 h-4 focus:outline-none focus:border-sky-500"
+                                        id="is-complete"
+                                        type="checkbox"
+                                    />
+                                    <label for="is-complete"
+                                        >Selesai dibaca</label
+                                    >
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <button
+                                    class="bg-sky-500 flex items-center justify-center h-10 px-5 rounded text-white min-h-min"
+                                    type="submit"
+                                >
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-6">
+                        <h2 class="text-2xl py-5">
+                            <strong>Cari Buku</strong>
+                        </h2>
+                        <div class="bg-white p-5 shadow-md rounded-lg">
+                            <form id="form-search">
+                                <div class="grid grid-cols-4 gap-3 rounded-lg">
+                                    <div class="col-span-3">
+                                        <input
+                                            class="border-2 border-gray-100 h-10 p-3 rounded shadow w-full focus:outline-none focus:border-sky-500"
+                                            id="search"
+                                            type="text"
+                                            placeholder="Cari judul buku"
+                                        />
+                                    </div>
+                                    <div class="col-span-1">
+                                        <button
+                                            class="bg-sky-500 flex items-center justify-center h-10 rounded text-white w-full"
+                                            type="submit"
+                                        >
+                                            <i data-feather="search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl py-3">
+                            <strong>Belum Selesai Dibaca</strong>
+                        </h2>
+                        <div id="not-completed-yet"></div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl py-3">
+                            <strong>Selesai Dibaca</strong>
+                        </h2>
+                        <div id="completed"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div
+                class="bg-white flex items-center h-16 text-center p-2"
+                id="footer"
+            >
+                <div class="container">
+                    MyBookshelf by <a class="text-sky-500 hover:underline" href="https://fajarwz.netlify.app">fajarwz</a>. Copyright © <span id="copyright-year"></span> All rights reserved.
+                    <div class="text-xs">Browser Anda perlu mempunyai atau mengaktifkan fitur localStorage atau penyimpanan data browser untuk menggunakan aplikasi ini</div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
